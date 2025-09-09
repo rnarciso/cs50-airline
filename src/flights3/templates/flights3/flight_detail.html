@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Flight {{ object.id }}
+{% endblock %}
+
+{% block body %}
+    <h1>Flight {{ object.id }}</h1>
+        <li>Flight No.: {{ object.flight_no }}</li>
+        <li>Origin: {{ object.origin }}</li>
+        <li>Destination: {{ object.destination }}</li>
+        <li>Departure Date: {{ object.departure_date }}</li>
+        <li>Arriving Date: {{ object.arriving_date }}</li>
+        <li>Flight Duration: {{ object.flight_duration }}</li>
+    <hr>
+    <h2>Passengers at this flight</h2>
+    {% for passenger in passengers %}
+        <a href="{{ passenger.get_absolute_url }}"><li>{{ forloop.counter }} - {{ passenger }}</li></a>
+    {% empty %}
+        No passengers at this flight!
+    {% endfor %}
+    <hr>
+    <div>
+        <a href="../">Back to Flights</a>
+    </div>
+{% endblock %}

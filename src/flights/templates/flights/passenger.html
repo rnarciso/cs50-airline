@@ -1,0 +1,39 @@
+{% extends "flights/layout.html" %}
+
+{% block title %}
+    Passenger {{ passenger.id }}
+{% endblock %}
+
+{% block body %}
+    <h1>Passenger {{ passenger.id }}</h1>
+        <li>First: {{ passenger.first }}</li>
+        <li>Last: {{ passenger.last }}</li>
+    <hr>
+    <h2>Booked Flights</h2>
+    {% for flight in flights %}
+            <a href="{% url 'flights:flight' flight.id %}"><li>{{ forloop.counter }} - {{ flight }}</li></a>
+    {% empty %}
+        No flights booked for this passenger!
+    {% endfor %}
+    <hr>
+    <h2>Book a flight</h2>
+    {% if non_flights %}
+    <div class="form-group">
+        <form action="{% url 'flights:book' passenger.id %}" method="post">
+            {% csrf_token %}
+            <select name="flight" class="custom-select">
+                {% for flight in non_flights %}
+                    <option value="{{ flight.id }}">{{ flight }}</option>
+                {% endfor %}
+            </select>
+            <button class="btn btn-dark btn-sm">Book Flight</button>
+        </form>
+    </div>
+    {% else %}
+        <div>No flights to book!</div>
+    {% endif %}
+    <hr>
+    <div>
+        <a href="{% url 'flights:passengers' %}">Back to Passengers</a>
+    </div>
+{% endblock %}

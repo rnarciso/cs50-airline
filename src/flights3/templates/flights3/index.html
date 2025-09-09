@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block body %}
+	
+	<div>
+		<img src="{% static 'img/banner.jpg' %}" class="img-fluid" alt="Responsive image">
+	</div>
+	<hr>
+
+    <div><a href="{% url 'flights3:airport_list' %}">Airports</a></div>
+    <div><a href="{% url 'flights3:flight_list' %}">Flights</a></div>
+    <div><a href="{% url 'flights3:passenger_list' %}">Passengers</a></div>
+{% endblock %}

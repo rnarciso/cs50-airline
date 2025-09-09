@@ -1,0 +1,15 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block body %}
+	
+	{% include "flights2/banner.html" %}
+
+    <div><a href="{% url 'flights2:airport_list' %}">Airports</a></div>
+    <div><a href="{% url 'flights2:flight_list' %}">Flights</a></div>
+    <div><a href="{% url 'flights2:passenger_list' %}">Passengers</a></div>
+{% endblock %}

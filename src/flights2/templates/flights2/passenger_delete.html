@@ -1,0 +1,15 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Delete Passenger
+{% endblock %}
+
+{% block body %}
+    <h1>Delete Passenger</h1>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        <p>Are you sure you want to delete {{ object }}</p>
+        <button class="btn btn-danger" type="submit">Yes</button>
+        <a class="btn btn-dark" href="../">No</a>
+    </form>
+{% endblock %}

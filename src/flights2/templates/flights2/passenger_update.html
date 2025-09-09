@@ -1,0 +1,16 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Update Passenger
+{% endblock %}
+
+{% block body %}
+    <h1>Update Passenger</h1>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ passenger_form.as_p }}
+        <button class="btn btn-dark" type="submit">Update</button>
+    </form>
+    <hr>
+    <a href="../">Back to Passengers</a>
+{% endblock %}

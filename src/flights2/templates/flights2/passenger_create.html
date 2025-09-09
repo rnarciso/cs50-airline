@@ -1,0 +1,16 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Add Passenger
+{% endblock %}
+
+{% block body %}
+    <h1>Add Passenger</h1>
+    <form action="{% url 'flights2:passenger_create' %}" method="POST" class="form-group">
+        {% csrf_token %}
+        {{ passenger_form.as_p }}
+        <button class="btn btn-dark" type="submit">Add</button>
+    </form>
+    <hr>
+    <a href="../">Back to Passengers</a>
+{% endblock %}

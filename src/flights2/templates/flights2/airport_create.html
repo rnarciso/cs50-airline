@@ -1,0 +1,16 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Add Airport
+{% endblock %}
+
+{% block body %}
+    <h1>Add Airport</h1>
+    <form action="{% url 'flights2:airport_create' %}" method="POST" class="form-group">
+        {% csrf_token %}
+        {{ airport_form }}
+        <button class="btn btn-dark" type="submit">Add</button>
+    </form>
+    <hr>
+    <a href="../">Back to Airports</a>
+{% endblock %}

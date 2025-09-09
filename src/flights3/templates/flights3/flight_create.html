@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Flight
+{% endblock %}
+
+{% block body %}
+    <h1>Add Flight</h1>
+    <form action="{% url 'flights3:flight_create' %}" method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark" type="submit">Add</button>
+    </form>
+    <hr>
+    <a href="../">Back to Flights</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "flights/layout.html" %}
+
+{% block title %}
+    Airports
+{% endblock %}
+
+{% block body %}
+    <h1>Airports</h1>
+    {% for airport in airports %}
+        <li>{{ forloop.counter }} - {{ airport }}</li>
+    {% endfor %}
+    <hr>
+    <a href="{% url 'flights:index' %}">Back to Home</a>
+{% endblock %}

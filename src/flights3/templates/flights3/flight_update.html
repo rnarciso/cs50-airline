@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Update Flight
+{% endblock %}
+
+{% block body %}
+    <h1>Update Flight</h1>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark" type="submit">Update</button>
+    </form>
+    <hr>
+    <a href="../">Back</a>
+{% endblock %}

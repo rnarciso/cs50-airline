@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Airport {{ object.id }}
+{% endblock %}
+
+{% block body %}
+    <h1>Airport {{ object.id }}</h1>
+        <li>Code: {{ object.code }}</li>
+        <li>City: {{ object.city }}</li>
+    <hr>
+    <div>
+        <a href="../">Back to Airports</a>
+    </div>
+{% endblock %}

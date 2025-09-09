@@ -1,0 +1,16 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Airports
+{% endblock %}
+
+{% block body %}
+    <h1>Airports</h1>
+    {% for instance in object_list %}
+        <li>{{ forloop.counter }} - {{ instance }}</li>
+	{% empty %}
+		<p>There are no airports</p>
+	{% endfor %}
+    <hr>
+    <a href="../">Back to Home</a>
+{% endblock %}

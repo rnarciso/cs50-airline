@@ -1,0 +1,26 @@
+{% extends "flights2/base.html" %}
+
+{% block title %}
+    Flight {{ flight.id }}
+{% endblock %}
+
+{% block body %}
+    <h1>Flight {{ flight.id }}</h1>
+        <li>Flight No.: {{ flight.flight_no }}</li>
+        <li>Origin: {{ flight.origin }}</li>
+        <li>Destination: {{ flight.destination }}</li>
+        <li>Departure Date: {{ flight.departure_date }}</li>
+        <li>Arriving Date: {{ flight.arriving_date }}</li>
+        <li>Flight Duration: {{ flight.flight_duration }}</li>
+    <hr>
+    <h2>Passengers at this flight</h2>
+    {% for passenger in passengers %}
+        <a href="{{ passenger.get_absolute_url }}"><li>{{ forloop.counter }} - {{ passenger }}</li></a>
+    {% empty %}
+        No passengers at this flight!
+    {% endfor %}
+    <hr>
+    <div>
+        <a href="../">Back to Flights</a>
+    </div>
+{% endblock %}
